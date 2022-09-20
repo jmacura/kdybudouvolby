@@ -801,6 +801,7 @@
   ],
   "referendums": [
     {
+      "type": "referendum",
       "name": "Referendum o přistoupení České republiky k Evropské unii",
       "year": 2003,
       "startDate": "2003-06-13",
