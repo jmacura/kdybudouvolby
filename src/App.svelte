@@ -2,6 +2,7 @@
   import data from './assets/elections.json'
   import type {Election, Referendum} from './lib/elections.type'
   import EventBlock from './lib/EventBlock.svelte';
+  import Footer from './lib/Footer.svelte';
 
   const sortByStartDate = (a: Election | Referendum, b: Election | Referendum) => {
     // When exact startDate is not available, compare just by year
@@ -38,6 +39,8 @@
   </div>
 
 </main>
+
+<Footer />
 
 <style>
 </style>
