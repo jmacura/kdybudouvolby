@@ -1,6 +1,6 @@
 <script lang="ts">
-  import fullNames from "../assets/fullNamesMap.json"
-  import type { Election, Referendum } from "./elections.type"
+  import fullNames from '../assets/fullNamesMap.json'
+  import type { Election, Referendum } from './elections.type'
 
   export let election: Election | Referendum
   export let firstInLine: boolean
@@ -32,9 +32,17 @@
     }
     return `${d}. ${m}`
   }
+
+  const isPastElection = () => {
+    const eventTime = new Date(election.endDate).getTime()
+    if (eventTime < now) {
+      return true
+    }
+    return false
+  }
 </script>
 
-<div class="m-2" class:hidden="{election.year < currentYear}" class:my-6="{firstInLine}">
+<div class="m-2" class:hidden="{isPastElection()}" class:my-6="{firstInLine}">
 <div class="text-2xl" class:text-7xl="{firstInLine}" class:font-bold="{firstInLine}">
   {formatDate(election.startDate ?? election.year)}
 </div>
