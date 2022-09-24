@@ -51,7 +51,11 @@
 </div>
 <div class="text-gray-700 m-1" class:text-2xl="{firstInLine}">
   {election.type == 'referendum' ? election.name : fullNames[election.type]}{election.round ? `, ${election.round}. kolo` : ''}
+  <br>
 </div>
+{#if election.type == 'senat' || election.type == 'senat-doplnovaci'}
+  v okrscích {election.precincts.join(', ')}
+{/if}
 </div>
 
 <style></style>
