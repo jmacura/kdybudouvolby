@@ -11,9 +11,7 @@
     }
     return new Date(a.startDate).getTime() > new Date(b.startDate).getTime() ? 1 : -1
   }
-  console.log(data)
   const electionData = [...data.main, ...data.auxillary, ...data.referendums].sort(sortByStartDate)
-  console.log(electionData)
 
   const now = new Date().getTime()
   const timeToNearestEvent = Math.min(
@@ -30,12 +28,10 @@
           return timeToStart >= -24 * 60 * 60 * 1000 ? timeToStart : Infinity
         })
   )
-  console.log(timeToNearestEvent)
   // When multiple elections happen on the same date, they are all nearest
   const nearestEvents = electionData.filter((el) => {
     return new Date(el.startDate).getTime() - now == timeToNearestEvent
   })
-  console.log(nearestEvents)
 </script>
 
 <div class="fixed top-0 left-0 w-screen bg-white bg-opacity-50"><h1 class="mx-auto my-2">Kdy budou volby?</h1></div>
