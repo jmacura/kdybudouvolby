@@ -31,9 +31,9 @@
       return `za ${Math.ceil(daysToEvent)} dny`
     }
     if (currentYear == y) {
-      return `${d}. ${m}`
+      return `${d}.\u00A0${m}`
     }
-    return `${d}. ${m} ${y}`
+    return `${d}.\u00A0${m} ${y}`
   }
 
   const isPastElection = () => {
@@ -45,7 +45,7 @@
   }
 </script>
 
-<div class="m-2" class:hidden="{isPastElection()}" class:my-6="{firstInLine}">
+<div class="m-2" class:hidden="{isPastElection()}" class:my-6="{firstInLine}" class:mt-20="{firstInLine}">
 <div class="text-2xl" class:text-7xl="{firstInLine}" class:font-bold="{firstInLine}">
   {formatDate(election.startDate ?? `${election.year}`)}
 </div>
